@@ -6,17 +6,26 @@ body {
     font-family: 'Poppins', sans-serif;
     font-family: 'Work Sans', sans-serif;   
 }
+.settings-box {
+padding: fi;
+}
+.settings-box .fa-gear {
+
+}
+.seyyinga {
+
+}
 /* start landing page */
 .landing {
     min-height: 100vh;
-    background-image: url(../imgs/pexels-toni-cuenca-585752.jpg);
+    background-image: url(../imgs/06.jpg);
     background-size: cover;
     position: relative;
     /* background-position: center ; */
 }
 .landing .overlay {
     position: absolute;
-    background-color: rgb(0 0 0 / 60%);
+    background-color: rgb(0 0 0 / 80%);
     width: 100%;
     height: 100%;
     top: 0;
