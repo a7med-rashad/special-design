@@ -7,13 +7,83 @@ body {
     font-family: 'Work Sans', sans-serif;   
 }
 .settings-box {
-padding: fi;
+    position: fixed;
+    right: -200px;
+    top: 0;
+    background-color: #fff;
+    width: 200px;
+    z-index: 999;
+    height: 100vh;
+    transition: .3s;
 }
-.settings-box .fa-gear {
+.settings-box.open {
+    right: 0;
+}
+.settings-box .toggle-settings {
+    position: absolute;
+    left: -30px;
+    top: 150px;
+    color: black;
+    background-color: #fff;
+    text-align: center;
+    cursor: pointer;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 4px;
+}
+.settings-box .toggle-settings .fa-gear {
+    line-height: inherit;
+    padding: 8px 0;
+    width: 30px;
+}
+.settings-box .option-box{
+    padding: 20px;
+}
+.settings-box .option-box h4{
+    margin: 0;
+    color: #666;
+}
+
+.settings-box .option-box .colors-list {
+    background-color: #eee;
+    padding-right: 5px;
+    padding-left: 5px;
+    border-radius: 10px;
+    text-align: center;
+    list-style: none;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    opacity: .5;
+    cursor: pointer;
+}
+.settings-box .option-box .colors-list li {
+    /* background-color: rgb(132, 0, 255); */
+    width: 25px;
+    height: 25px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
 
 }
-.seyyinga {
-
+.settings-box .option-box .colors-list li.active{
+    opacity: 1;
+}
+.settings-box .option-box .colors-list li:first-child{
+    background-color: aquamarine;
+}
+    .settings-box .option-box .colors-list li:nth-child(2) {
+    background-color: blue;
+}
+.settings-box .option-box .colors-list li:nth-child(3) {
+    background-color: rgb(255, 0, 106);
+}
+.settings-box .option-box .colors-list li:nth-child(4) {
+    background-color: rgb(200, 255, 0);
+}
+.settings-box .option-box .colors-list li:nth-child(5) {
+    background-color: rgb(132, 0, 255);
 }
 /* start landing page */
 .landing {
