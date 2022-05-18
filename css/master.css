@@ -24,7 +24,7 @@ body {
     left: -30px;
     top: 150px;
     color: black;
-    background-color: #fff;
+    background-color: #ccc;
     text-align: center;
     cursor: pointer;
     border-top-left-radius: 15px;
@@ -44,46 +44,51 @@ body {
 }
 
 .settings-box .option-box .colors-list {
-    background-color: #eee;
+    background-color: #dfdfdf;
     padding-right: 5px;
     padding-left: 5px;
-    border-radius: 10px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
     text-align: center;
     list-style: none;
     height: 50px;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    opacity: .5;
+    opacity: .7;
     cursor: pointer;
 }
 .settings-box .option-box .colors-list li {
-    /* background-color: rgb(132, 0, 255); */
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 12px;
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
-    border-bottom-right-radius: 8px;
-    border-bottom-left-radius: 8px;
-
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    opacity: 0.6;
 }
 .settings-box .option-box .colors-list li.active{
     opacity: 1;
+    height: 20px; 
+    border-bottom-right-radius: 4px; 
+    border-bottom-left-radius: 4px;
 }
 .settings-box .option-box .colors-list li:first-child{
-    background-color: aquamarine;
+    background-color: #ff9800;
 }
-    .settings-box .option-box .colors-list li:nth-child(2) {
-    background-color: blue;
+.settings-box .option-box .colors-list li:nth-child(2) {
+    background-color: #138f65;
 }
 .settings-box .option-box .colors-list li:nth-child(3) {
-    background-color: rgb(255, 0, 106);
+    background-color: #1871ff;
 }
 .settings-box .option-box .colors-list li:nth-child(4) {
-    background-color: rgb(200, 255, 0);
+    background-color: #E91E63;
 }
 .settings-box .option-box .colors-list li:nth-child(5) {
-    background-color: rgb(132, 0, 255);
+    background-color: #9b30ff;
 }
 /* start landing page */
 .landing {
