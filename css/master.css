@@ -100,7 +100,7 @@ body {
 /* start landing page */
 .landing {
     min-height: 100vh;
-    background-image: url(../imgs/06.jpg);
+    background-image: url(imgs/06.jpg);
     background-size: cover;
     position: relative;
     /* background-position: center ; */
@@ -171,6 +171,5 @@ body {
     line-height: 1.6;
     font-size: 18px;
     margin: 0;
-
 }
 /* end landing page  */
