@@ -80,7 +80,6 @@ randomBackEl.forEach(span => {
     })
 
 })
-console.log(colorsli);
 // landing page element
 let imgs = ["01.jpg", "02.jpg", "03.jpg", "04.jpg", "05.jpg", "06.jpg"];
 
@@ -99,19 +98,25 @@ randmizeImgs();
 let ourSkills = document.querySelector(".skills");
 
 window.onscroll = function () {
-  
+    
 let skillsOffsetTop = ourSkills.offsetTop;
 
 let skillsOuterHeight = ourSkills.offsetHeight;
+
 let windowHeight = this.innerHeight;
+
 let windowScrollTop = this.pageYOffset;
 
-if (windowScrollTop > (skillsOffsetTop + skillsOuterHeight - windowHeight)) {
-  let allSkills = document.querySelectorAll(".skills-box .skill-progress span");
-  allSkills.forEach(skill => {
-    skill.style.width = skill.dataset.progress;
-  })
+
+if (windowScrollTop + 2 > (skillsOffsetTop + skillsOuterHeight - windowHeight)) {
+    let allSkills = document.querySelectorAll(".skills-box .skill-progress span");
+    
+    allSkills.forEach(skill => {
+    
+        
+        skill.style.width = skill.dataset.progress;
+    
+    })
 }
-  
+    
 }
-// end skills selector 

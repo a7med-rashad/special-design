@@ -169,7 +169,7 @@ margin-right: 10px;
     position: relative;
     z-index: 1;
     display: flex;
-    padding: 15px;
+    /* padding: 15px; */
     color: white;
     border-bottom: 1px solid var(--main-color);
 }
@@ -180,43 +180,54 @@ margin-right: 10px;
     padding: 20px;
 }
 .header .links {
-    text-align: right;
+    display: flex;
+    justify-content: right;
+    align-items: center;
     list-style: none;
     flex: 1;
-    padding-left: 0;
-    padding-right: 30px;
-    padding-top: 5px;
-
+    margin: 0 20px;;
 }
 .header .links li {
-    padding-top: 10px;
-    display: inline-block;
+    padding: 20px 0;
     margin-left: 15px;
     color: #fff;
-    height: 186%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
 }
 .header .links li a {
     text-decoration: none;
     color: #fff;
     transition: 0.3s;
+    padding: 15px;
+    border-radius: 15px 15px 5px 5px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
 }
-.header .links li:hover,
-.header .links li.active {
-    border-bottom: 1px solid #333;
+.header .links li a:hover,
+.header .links li.active a {
+    background-color: var(--main-color);
 }
-.header .links li.active a{
-    color: var(--main-color);
+.header .links li:hover::after,
+.header .links li.active::after {
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    top: 100%;
+    left: 0;
+    background-color: #000;
 }
 .intro {
     z-index: 2;
     position: absolute;
     padding: 26px;
-    top: 60%;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     text-align: center;
     color: #fff;
-    height: 300px;
 }
 .intro h1 {
     font-size: 38px;
@@ -256,44 +267,62 @@ margin-right: 10px;
 /* end about us */
 /* start skills */
 .skills {
-  padding-top: 100px;
-  padding-bottom: 100px;
-  background-color: var(--main-color);
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-color: #ddd;
+    position: relative;
+    z-index: -2;
+    overflow: hidden;
+}
+.skills:before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -7px;
+    width: 232%;
+    height: 175%;
+    border-radius: 49% 36% 32% 47%;
+    background-color: #aaa;
+    opacity: 0.8;
+    transform: rotate(-45);
+    z-index: -1;
 }
 .skills .heading h2 {
-  color: white;
-  border-color: white;
+    color: white;
+    border-color: white;
+    background-color: var(--main-color);
 }
 .skills-box {
-  background-color: #fff;
-  display: flex;
-  padding: 25px 20px;
-  margin-bottom: 20px;
-  border-radius: 15px 15px 5px 5px;
+    background-color: #fff;
+    display: flex;
+    padding: 25px 20px;
+    margin-bottom: 20px;
+    border-radius: 15px 15px 5px 5px;
 }
 .skills .skill-name {
-  font-size: 15px;
-  font-weight: bold;
-  font-size: 25px;
-  text-align: center;
-  width: 200px;
+    font-size: 15px;
+    font-weight: bold;
+    font-size: 25px;
+    text-align: center;
+    width: 200px;
 }
 .skill-progress {
-  height: 30px;
-  width: 100%;
-  background-color: #ddd;
-  border-radius: 15px 15px 5px 5px;
-  position: relative;
-  margin-left: 20px;
-  overflow: hidden;
+    height: 30px;
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 15px 15px 5px 5px;
+    position: relative;
+    margin-left: 20px;
+    overflow: hidden;
+    opacity: 1;
 }
 .skills .skills-box .skill-progress span {
-  position: absolute;
-  top: 0;
-  left: 0%;
-  height: 30px;
-  width: 0%;
-  background-color: var(--main-color);
-  transition: all 0.5s
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 30px;
+    width: 0;
+    background-color: var(--main-color);
+    transition: all 0.5s;
 }
 /* end skills */
