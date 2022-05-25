@@ -94,3 +94,24 @@ function randmizeImgs() {
     }
 }
 randmizeImgs();
+// end landing imgs 
+// start skills selector
+let ourSkills = document.querySelector(".skills");
+
+window.onscroll = function () {
+  
+let skillsOffsetTop = ourSkills.offsetTop;
+
+let skillsOuterHeight = ourSkills.offsetHeight;
+let windowHeight = this.innerHeight;
+let windowScrollTop = this.pageYOffset;
+
+if (windowScrollTop > (skillsOffsetTop + skillsOuterHeight - windowHeight)) {
+  let allSkills = document.querySelectorAll(".skills-box .skill-progress span");
+  allSkills.forEach(skill => {
+    skill.style.width = skill.dataset.progress;
+  })
+}
+  
+}
+// end skills selector 
