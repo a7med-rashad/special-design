@@ -9,13 +9,17 @@ body {
     font-family: 'Poppins', sans-serif;
     font-family: 'Work Sans', sans-serif;   
 }
+.heading {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
 .heading h2 {
     padding: 20px;
     width: fit-content;
     font-weight: bold;
     font-size: 40px;
     color: var(--main-color);
-    margin: 0 0 70px;
     border: 1px solid var(--main-color);
     border-radius: 15px 15px 5px 5px;
 }
@@ -246,7 +250,10 @@ margin-right: 10px;
 .about-us {
     padding-top: 100px;
     padding-bottom: 100px;
+}
+.content-box {
     display: flex;
+    justify-content: space-between;
 }
 .about-us .info-box {
     flex: 1;
@@ -295,14 +302,14 @@ margin-right: 10px;
 .skills-box {
     background-color: #fff;
     display: flex;
-    padding: 25px 20px;
-    margin-bottom: 20px;
+    padding: 35px 30px;
+    margin-bottom: 25px;
     border-radius: 15px 15px 5px 5px;
 }
 .skills .skill-name {
     font-size: 15px;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 20px;
     text-align: center;
     width: 200px;
 }
@@ -326,3 +333,25 @@ margin-right: 10px;
     transition: all 0.5s;
 }
 /* end skills */
+/* start gallery */
+.gallery {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+.gallery .imgs-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.gallery .imgs-box img{
+    width: 220px;
+    height: 220px;
+    padding: 5px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 15px 15px 5px 5px;
+    margin: 15px;
+}
+/* end gallery */
+
+
