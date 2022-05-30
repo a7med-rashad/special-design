@@ -22,6 +22,7 @@ body {
     color: var(--main-color);
     border: 1px solid var(--main-color);
     border-radius: 15px 15px 5px 5px;
+    z-index: 2;
 }
 .container {
     padding-left: 15px;
@@ -88,7 +89,6 @@ body {
     color: #333;
     font-size: 14px;
 }
-
 .settings-box .option-box .colors-list {
     background-color: #dfdfdf;
     padding-right: 5px;
@@ -141,7 +141,6 @@ body {
     border-radius: 15px 15px 8px 8px;
     opacity: 0.4;
     cursor: pointer;
-
 }
 .settings-box .option-box .yes{
 background-color: blue;
@@ -276,7 +275,7 @@ margin-right: 10px;
 .skills {
     padding-top: 100px;
     padding-bottom: 100px;
-    background-color: #ddd;
+    background-color: #fdfdfd;
     position: relative;
     z-index: -2;
     overflow: hidden;
@@ -289,29 +288,24 @@ margin-right: 10px;
     width: 232%;
     height: 175%;
     border-radius: 49% 36% 32% 47%;
-    background-color: #aaa;
-    opacity: 0.8;
+    background-color: #ddd;
     transform: rotate(-45);
     z-index: -1;
-}
-.skills .heading h2 {
-    color: white;
-    border-color: white;
-    background-color: var(--main-color);
 }
 .skills-box {
     background-color: #fff;
     display: flex;
-    padding: 35px 30px;
+    padding: 30px 25px;
     margin-bottom: 25px;
+    border: 0.5px solid var(--main-color);
     border-radius: 15px 15px 5px 5px;
 }
 .skills .skill-name {
-    font-size: 15px;
     font-weight: bold;
     font-size: 20px;
     text-align: center;
     width: 200px;
+    line-height: 35px;
 }
 .skill-progress {
     height: 30px;
@@ -337,21 +331,185 @@ margin-right: 10px;
 .gallery {
     padding-top: 100px;
     padding-bottom: 100px;
+    background-color: #ddd;
+    overflow: hidden;
+    position: relative;
+}
+.gallery:before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    right: -7px;
+    width: 232%;
+    height: 175%;
+    border-radius: 49% 36% 32% 47%;
+    background-color: #fff;
+    transform: rotate(-45);
+    z-index: 1;
 }
 .gallery .imgs-box {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    z-index: 2;
 }
 .gallery .imgs-box img{
     width: 220px;
     height: 220px;
     padding: 5px;
     background-color: #eee;
-    border: 1px solid #ccc;
+    border: 0.5px solid var(--main-color);
     border-radius: 15px 15px 5px 5px;
     margin: 15px;
+    z-index: 3;
 }
 /* end gallery */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .5);
+    z-index: 1000;
+}
+.popup-box {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 20px;
+    z-index: 1001;
+    border-radius: 15px 15px 5px 5px;
+}
+.popup-box img {
+    height: 600px;
+    width: 600px;
+}
+.popup-box h3 {
+    font-weight: bold;
+    margin: 0 0 20px;
+    text-align: center;
+    color: var(--main-color);
+}
+.close-button {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: -15px;
+    right: -15px;
+    background: var(--main-color);
+    color: #fff;
+    font-size: 30px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 15px 15px 5px 5px;
+    font-weight: bold;
+}
 
-
+/*start timeline */ 
+.timeline {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-color: #eee;
+}
+.timeline .timeline-content {
+    position: relative;
+    overflow: hidden;
+}
+.timeline .timeline-content:before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background-color: var(--main-color);
+    left: 50%;
+    margin-left: -1px;
+}
+.timeline .timeline-content .year {
+    margin: 20px auto;
+    background-color: var(--main-color);
+    width: 50px;
+    position: relative;
+    color: #fff;
+    z-index: 2;
+    padding: 2px 5px;
+    text-align: center;
+    border-radius: 15px 15px 5px 5px;
+    font-weight: bold;
+}
+.timeline .timeline-content .left,
+.timeline .timeline-content .right {
+    width: calc(50% - 25px);
+    margin-bottom: 40px;
+    position: relative;
+}
+.timeline .timeline-content .left {
+    float: left;
+}
+.timeline .timeline-content .left:before,
+.timeline .timeline-content .right:before {
+    content: '';
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    border: 3px solid var(--main-color);
+    border-radius: 50%;
+    top: 20px;
+    right: -35px;
+    background-color: #fff;
+}
+.timeline .timeline-content .left:before {
+    right: -35px;
+}
+.timeline .timeline-content .right:before {
+    left: -35px;
+}
+.timeline .timeline-content .right {
+    float: right;
+}
+.timeline .timeline-content .content{
+    padding: 20px;
+    border-radius: 15px 15px 5px 5px;
+    border: 1px solid var(--main-color);
+    background: #fff;
+    position: relative;
+}
+.timeline .timeline-content h3 {
+    font-weight: bold;
+    color: var(--main-color);
+    margin: 0 0 10px;
+}
+.timeline .timeline-content p {
+    margin: 0;
+    line-height: 1.6;
+    color: #666;
+}
+.clear-fix {
+    clear: both;
+}
+.timeline .timeline-content .left .content:before {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-color: transparent transparent transparent var(--main-color);
+    border-width: 10px;
+    width: 0;
+    height: 0;
+    right: -20px;
+    top: 20px;
+}
+.timeline .timeline-content .right .content:before {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-color: transparent var(--main-color) transparent transparent;
+    border-width: 10px;
+    width: 0;
+    height: 0;
+    left: -20px;
+    top: 20px;
+}
+/*end timeline */

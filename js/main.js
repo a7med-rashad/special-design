@@ -120,3 +120,39 @@ if (windowScrollTop + 200 > (skillsOffsetTop + skillsOuterHeight - windowHeight)
 }
     
 }
+
+// create pup up 
+
+ourGallery = document.querySelectorAll(".gallery img")
+
+ourGallery.forEach(img => {
+    img.addEventListener('click', (e) => {
+    let overlay = document.createElement("div");
+    overlay.className = "popup-overlay";
+    document.body.appendChild(overlay);
+    let popupBox = document.createElement("div");
+    popupBox.className = "popup-box";
+    if (img.alt !== "") {
+        imgHeading = document.createElement("h3");
+        imgText = document.createTextNode(img.alt);
+        imgHeading.appendChild(imgText) 
+        popupBox.appendChild(imgHeading);
+    }
+    let popupImage = document.createElement("img")
+    popupImage.src = img.src;
+    popupBox.appendChild(popupImage);
+    document.body.appendChild(popupBox);
+    
+    let closeButton = document.createElement("span");
+    let closeButtonText = document.createTextNode("x");
+    closeButton.className = "close-button"
+    closeButton.appendChild(closeButtonText);
+    popupBox.appendChild(closeButton);
+    })
+})
+document.addEventListener("click", function(e) {
+    if (e.target.className == "close-button" || e.target.className == "popup-overlay") {
+    document.querySelector(".popup-box").remove();
+    document.querySelector(".popup-overlay").remove();
+    }
+})
