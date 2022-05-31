@@ -154,22 +154,53 @@ margin-right: 10px;
     opacity: 1;
 }
 /* end settings-box */
-/* start nav bullets */
+/* start bullrts nav */
 .nav-bullets {
-    position: fixed;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 40px;
-
+  position: fixed;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  z-index: 1000;
+  cursor: pointer;
 }
-.bullet {
-    width: 20px;
-    height: 20px;
-    border: 3px solid vae(--main-color);
-    
+.nav-bullets .bullet {
+  width: 20px;
+  height: 20px;
+  border: 3px solid var(--main-color);
+  border-radius: 5px 15px 15px 5px;
+  margin: 30px 0;
+  position: relative;
 }
-/* end nav bullets */
+.nav-bullets .bullet:hover .tooltip{
+  display: block;
+}
+.nav-bullets .bullet .tooltip {
+  position: absolute;
+  width: 120px;
+  top: -10px;
+  left: 40px;
+  color: white;
+  background-color: var(--main-color);
+  padding: 8px 15px;
+  border-radius: 15px 15px 5px 5px;
+  text-align: center;
+  cursor: default;
+  pointer-events: none;
+  display: none;
+}
+.nav-bullets .bullet .tooltip:before {
+  content: '';
+    position: absolute;
+    border-style: solid;
+    border-color: transparent var(--main-color) transparent transparent;
+    border-width: 10px;
+    width: 0;
+    height: 0;
+    left: -18px;
+    top: 8px;
+}
+/* end bullets nav */
 .landing {
     min-height: 100vh;
     background-image: url(../imgs/01.jpg);

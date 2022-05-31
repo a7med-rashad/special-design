@@ -156,3 +156,12 @@ document.addEventListener("click", function(e) {
     document.querySelector(".popup-overlay").remove();
     }
 })
+// start bullets nav 
+let allBullilets = document.querySelectorAll(".nav-bullets.bullet");
+allBullilets.forEach(bullet => {
+    bullet.addEventListener("click",(e) => {
+    document.querySelector(".about-us").scrollIntoView({
+        behavior: 'smooth'
+    });
+    });
+});
