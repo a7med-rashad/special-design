@@ -13,7 +13,7 @@ if (mainColors !== null) {
     })
 }
 
-let backgroundOption = true;
+let backgroundOption = false;
 let backgroundInterval;
 
 let backgLocalItem = localStorage.getItem("background-option");
@@ -44,15 +44,13 @@ document.querySelector(".toggle-settings .fa-gear").onclick = function () {
 };
 // switch color
 const colorsli = document.querySelectorAll(".colors-list li");
+
 colorsli.forEach(li => {
 
     li.addEventListener("click", (e) => {
         document.documentElement.style.setProperty('--main-color', e.target.dataset.color)
         localStorage.setItem("color_option", e.target.dataset.color)
-        e.target.parentElement.querySelectorAll(".active").forEach(ele => {
-            ele.classList.remove("active");
-        })
-        e.target.classList.add("active")
+        handleActive(e);
     })
 
 })
@@ -63,10 +61,7 @@ let randomBackEl = document.querySelectorAll(".random-backgrounds span");
 randomBackEl.forEach(span => {
 
     span.addEventListener("click", (e) => {
-        e.target.parentElement.querySelectorAll(".active").forEach(ele => {
-            ele.classList.remove("active");
-        })
-        e.target.classList.add("active");
+        handleActive(e);
         if (e.target.dataset.background === 'yes') {
             backgroundOption = true;
             randmizeImgs()
@@ -89,7 +84,7 @@ function randmizeImgs() {
     backgroundInterval = setInterval(() => {
     let changeImgs = imgs[Math.floor(Math.random() * imgs.length)];
     document.querySelector(".landing").style.backgroundImage = 'url("imgs/' + changeImgs + '")';
-        }, 1000)
+        }, 5000)
     }
 }
 randmizeImgs();
@@ -108,7 +103,7 @@ let windowHeight = this.innerHeight;
 let windowScrollTop = this.pageYOffset;
 
 
-if (windowScrollTop + 200 > (skillsOffsetTop + skillsOuterHeight - windowHeight)) {
+if (windowScrollTop + 300 > (skillsOffsetTop + skillsOuterHeight - windowHeight)) {
     let allSkills = document.querySelectorAll(".skills-box .skill-progress span");
     
     allSkills.forEach(skill => {
@@ -157,11 +152,75 @@ document.addEventListener("click", function(e) {
     }
 })
 // start bullets nav 
-let allBullilets = document.querySelectorAll(".nav-bullets.bullet");
-allBullilets.forEach(bullet => {
-    bullet.addEventListener("click",(e) => {
-    document.querySelector(".about-us").scrollIntoView({
-        behavior: 'smooth'
+let allBullilets = document.querySelectorAll(".nav-bullets .bullet");
+
+// select all links
+
+let allLinks = document.querySelectorAll(".links a");
+
+function scrollToSection(element) {
+
+    element.forEach(el => {
+        el.addEventListener("click",(e) => {
+            e.preventDefault();
+            document.querySelector(e.target.dataset.section).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
     });
-    });
+};
+
+scrollToSection(allBullilets);
+scrollToSection(allLinks);
+
+// handle active state 
+function handleActive(ele) {
+
+    ele.target.parentElement.querySelectorAll(".active").forEach(ele => {
+        ele.classList.remove("active");
+    })
+
+    ele.target.classList.add("active")
+};
+
+
+let bulletsSpan = document.querySelectorAll(".bullets-option span");
+let bulletsContainer = document.querySelector(".nav-bullets");
+let bulletsLocalStorage = localStorage.getItem("bullets-option");
+
+if (bulletsLocalStorage !== null) {
+    bulletsLocalStorage; 
+    bulletsSpan.forEach(span => {
+        span.classList.remove("active"); 
+    })
+
+    if(bulletsLocalStorage === "block") {
+        document.querySelector(".bullets-option .yes").classList.add("active")
+        bulletsContainer.dataset.display = "block"
+    }else {
+        document.querySelector(".bullets-option .no").classList.add("active")
+        bulletsContainer.dataset.display = "none"
+    }
+}
+bulletsSpan.forEach(span => {
+    span.addEventListener("click", (e) => {
+        if (span.dataset.display === "block") {
+            bulletsContainer.style.display = "block";
+            localStorage.setItem("bullets-option", "block")
+        } else {
+            bulletsContainer.style.display = "none";
+            localStorage.setItem("bullets-option", "none")
+        }
+        handleActive(e)
+    })
 });
+// reset button 
+
+document.querySelector(".reset-options").onclick = function () {
+
+    localStorage.removeItem("bullets-option");
+    localStorage.removeItem("background-option");
+    localStorage.removeItem("color_option");
+
+    window.location.reload();
+}

@@ -22,36 +22,53 @@
             <div class="option-box">
                 <h4>colors</h4>
                 <ul class="colors-list">
-                    <li class="active" data-color="#ff9800"></li>
-                    <li data-color="#138f65"></li>
-                    <li data-color="#1871ff"></li>
-                    <li data-color="#E91E63"></li>
-                    <li data-color="#9b30ff"></li>
+                  <li data-color="#E91E63"></li>
+                  <li data-color="#138f65"></li>
+                  <li class="active" data-color="#1871ff"></li>
+                  <li data-color="#ff9800"></li>
+                  <li data-color="#9b30ff"></li>
                 </ul>
             </div>
             <div class="option-box">
                 <h4>random backgrounds</h4>
                 <div class="random-backgrounds">
-                    <span class="yes active" data-background="yes">yes</span>
-                    <span class="no" data-background="no">no</span>
+                  <span class="no active" data-background="no"></span>
+                  <span class="yes" data-background="yes"></span>
                 </div>
             </div>
+            <div class="option-box">
+                <h4>show bullets</h4>
+                <div class="bullets-option">
+                  <span class="no" data-display="none"></span>
+                  <span class="yes active" data-display="block"></span>
+                </div>
+            </div>
+            <button class="reset-options">Reset Options</button>
         </div>
     </div>
     <!-- end settings box -->
     <!-- start nav bullets -->
     <div class="nav-bullets">
+      <div class="bullet" data-section=".landing">
+        <div class="tooltip">Home</div>
+      </div>
       <div class="bullet" data-section=".about-us">
         <div class="tooltip">About Us</div>
       </div>
       <div class="bullet" data-section=".skills">
-        <div class="tooltip">Our Skills</div>
+        <div class="tooltip">Skills</div>
       </div>
       <div class="bullet" data-section=".gallery">
-        <div class="tooltip">Our Gallery</div>
+        <div class="tooltip">Gallery</div>
       </div>
       <div class="bullet" data-section=".timeline">
         <div class="tooltip">Timeline</div>
+      </div>
+      <div class="bullet" data-section=".features">
+        <div class="tooltip">Features</div>
+      </div>
+      <div class="bullet" data-section=".contact">
+        <div class="tooltip">Contact Us</div>
       </div>
     </div>
     <!-- end nav bullets -->
@@ -61,13 +78,21 @@
         <div class="container">
             <header class="header">
                 <div class="logo">Special Design</div>
-                <ul class="links">
-                    <li class="active"><a href="#">home</a></li>
-                    <li><a href="#">about</a></li>
-                    <li><a href="#">services</a></li>
-                    <li><a href="#">product</a></li>
-                    <li><a href="#">contact</a></li>
-                </ul>
+                <div class="links-container">
+                  <ul class="links">
+                    <li class="active"><a href="#" data-section=".landing">Home</a></li>
+                    <li><a href="#" data-section=".about-us">About</a></li>
+                    <li><a href="#" data-section=".skills">Skills</a></li>
+                    <li><a href="#" data-section=".gallery">Gallery</a></li>
+                    <li><a href="#" data-section=".timeline">Timeline</a></li>
+                    <li><a href="#" data-section=".features">Features</a></li>
+                  </ul>
+                  <button class="toggle-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </button>
+                </div>
             </header>
         </div>
         <div class="intro">
@@ -98,7 +123,7 @@
     <div class="skills">
       <div class="container">
         <div class="heading">
-          <h2>Our skills</h2>
+          <h2>Skills</h2>
         </div>
         <div class="skills-box">
           <div class="skill-name">Html</div>
@@ -143,7 +168,7 @@
     <div class="gallery">
       <div class="container">
         <div class="heading">
-          <h2>Our gallery</h2>
+          <h2>Gallery</h2>
         </div>
         <div class="imgs-box">
           <img src="imgs/01.jpg" alt="Image One">
@@ -166,7 +191,7 @@
     <div class="timeline">
       <div class="container">
         <div class="heading">
-          <h2>Our skills</h2>
+          <h2>Timeline</h2>
         </div>
         <div class="timeline-content">
           <div class="year">2022</div>
@@ -279,6 +304,29 @@
       </div>
     </div>
     <!-- end features  -->
+    <!-- statr contact us  -->
+    <div class="contact">
+      <div class="container">
+        <div class="heading">
+          <h2>Contact Us</h2>
+        </div>
+        <form action="">
+          <div class="left">
+            <input type="text" placeholder="Your Name" name="username" required>
+            <input type="text" placeholder="Your Phone" name="phone" >
+            <input type="email" placeholder="Your Email"  name="email" required>
+          </div>
+          <div class="right">
+            <input type="text" placeholder="Your Subject" name="subject">
+            <textarea name="massage" placeholder="Your Massege"></textarea>
+          </div>
+          <div class="submit">
+            <input type="submit" value="Send">
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- end contact us  -->
     <script src="js/main.js" ></script>
 </body>
 </html>
