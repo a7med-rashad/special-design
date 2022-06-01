@@ -224,3 +224,29 @@ document.querySelector(".reset-options").onclick = function () {
 
     window.location.reload();
 }
+
+// toggle menu 
+
+let toggleBtn = document.querySelector(".toggle-menu");
+let tlinks = document.querySelector(".links");
+
+toggleBtn.onclick = function (e) {
+
+    e.stopPropagation();
+    tlinks.classList.toggle("open")
+}
+
+document.addEventListener("click", (e) => {
+
+    if (e.target !== toggleBtn && e.target !== tlinks) {
+    
+        if (tlinks.classList.contains("open")){
+        
+            tlinks.classList.toggle("open")
+        }
+    }
+})
+
+tlinks.onclick = function(e) {
+    e.stopPropagation();
+}
